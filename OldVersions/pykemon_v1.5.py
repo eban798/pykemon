@@ -93,13 +93,13 @@ def Battle(pPokemon, pMoveList, cPokemon, cMoveList):
         winner = "Player"
         break
       time.sleep(.5)
-    print pPokemon[0] + "'s health is:", pPokemon[1]
-    print cPokemon[0] + "'s health is:", cPokemon[1]
-  print "Ther winner is: " + winner
+    print (pPokemon[0] + "'s health is:", pPokemon[1])
+    print (cPokemon[0] + "'s health is:", cPokemon[1])
+  print ("Ther winner is: ") + winner
   
 def pAttackSequence(pPokemon, pMove, cPokemon, pStats, cStats):
-  print pPokemon[0] + " used " + pMove[5] + "."
-  print ""
+  print (pPokemon[0] + " used " + pMove[5] + ".")
+  print ("")
   mode = pMove[0]
   if mode == "1":
     cPokemon = DamageMod(pPokemon, pMove, cPokemon, pStats, cStats)
@@ -109,8 +109,8 @@ def pAttackSequence(pPokemon, pMove, cPokemon, pStats, cStats):
     cStats = StatMod(pMove, pStats, cStats)
 
 def cAttackSequence(cPokemon, cMove, pPokemon, cStats, pStats):
-  print cPokemon[0] + " used " + cMove[5] + "."
-  print ""
+  print (cPokemon[0] + " used " + cMove[5] + ".")
+  print ("")
   mode = cMove[0]
   if mode == "1":
     pPokemon = DamageMod(cPokemon, cMove, pPokemon, cStats, pStats)
@@ -126,8 +126,8 @@ def DamageMod(attacker, attack, target, attackerStats, targetStats):
   tDEF = StatIndex(targetStats, "D")
   effect = DMG*(aATK/tDEF)*typeAdvantage
   target[1] = int(target[1]) - effect
-  print attacker[0] + " dealt", effect, "damage!"
-  print ""
+  print (attacker[0] + " dealt", effect, "damage!")
+  print ("")
   return target
   
 def StatMod(move, attackerStats, targetStats):
@@ -190,9 +190,9 @@ def cMoveSelect(cMoveList):
   return cMove
   
 def pMoveSelect(pMoveList):
-  print "What will " + pPokemon[0] + " do?"
+  print ("What will " + pPokemon[0] + " do?")
   time.sleep(1)
-  print "Your choices are... "
+  print ("Your choices are... ")
   PrintMoves(pMoveList)
   pMoveChoice = raw_input("")
   tracker = 0
@@ -206,13 +206,13 @@ def pMoveSelect(pMoveList):
 
 def PrintMoves(moveList):
   for x in moveList:
-    print x[5]
-  print ""
+    print (x[5])
+  print ("")
 
 def PrintChoices(choices):
   for x in choices:
-    print x
-  print ""
+    print (x)
+  print ("")
 
 def ClearTerminal():
   os.system('cls' if os.name=='nt' else 'clear')
